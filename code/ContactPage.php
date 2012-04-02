@@ -27,11 +27,6 @@ class ContactPage extends Page{
 		$fields->addFieldToTab("Root.Content.Main", $field);
 		return $fields;
 	}
-}
-
-class ContactPage_Controller extends Page_Controller {
-
-	static $allowed_actions = array('ContactForm');
 
 	function Form() {
 		$r =  '<em>'._t('ContactPage.LABELREQUIRED','*').'</em>';
@@ -52,6 +47,12 @@ class ContactPage_Controller extends Page_Controller {
 
         return new Form($this,'ContactForm', $fields, $actions, $validator);
     }
+}
+
+class ContactPage_Controller extends Page_Controller {
+
+	static $allowed_actions = array('ContactForm');
+
 
 	function ContactForm(SS_HTTPRequest $data){
 		$d = $data->postVars();
